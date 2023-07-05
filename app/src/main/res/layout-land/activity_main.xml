@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="CalculatorViewModel"
+            type="com.example.calculatorapp.CalculatorViewModel" />
+    </data>
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#292D36"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/tvInput"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="#22252D"
+            android:gravity="start"
+            android:padding="10dp"
+            android:textSize="48sp"
+            android:textColor="#FFFFFF"/>
+        <LinearLayout
+            android:id="@+id/llOne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:id="@+id/btnSeven"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()->CalculatorViewModel.onDig(`7`)}"
+                android:text="7" />
+
+            <Button
+                android:id="@+id/btnEight"
+                android:layout_width="0dp"
+                android:layout_marginEnd="5dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()->CalculatorViewModel.onDig(`8`)}"
+                android:text="8" />
+
+            <Button
+                android:id="@+id/btnNine"
+                android:layout_width="0dp"
+                android:layout_marginEnd="5dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()->CalculatorViewModel.onDig(`9`)}"
+                android:text="9" />
+
+            <Button
+                android:id="@+id/btnDivide"
+                android:layout_width="0dp"
+                android:textColor="#ffa500"
+                android:layout_marginEnd="5dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()->CalculatorViewModel.check(`/`)}"
+                android:text="/" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llTwo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:id="@+id/btnFour"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()->CalculatorViewModel.onDig(`4`)}"
+                android:text="4" />
+
+            <Button
+                android:layout_marginEnd="5dp"
+                android:id="@+id/btnFive"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()->CalculatorViewModel.onDig(`5`)}"
+                android:text="5" />
+
+            <Button
+                android:layout_marginEnd="5dp"
+                android:id="@+id/btnSix"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()->CalculatorViewModel.onDig(`6`)}"
+                android:text="6" />
+
+            <Button
+                android:layout_marginEnd="5dp"
+                android:id="@+id/btnMultiply"
+                android:textColor="#ffa500"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()->CalculatorViewModel.check(`*`)}"
+                android:text="*" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llThree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:id="@+id/btnOne"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()->CalculatorViewModel.onDig(`1`)}"
+                android:text="1" />
+
+            <Button
+                android:layout_marginEnd="5dp"
+                android:id="@+id/btnTwo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()->CalculatorViewModel.onDig(`2`)}"
+                android:text="2" />
+
+            <Button
+                android:layout_marginEnd="5dp"
+                android:id="@+id/btnThree"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()->CalculatorViewModel.onDig(`3`)}"
+                android:text="3" />
+
+            <Button
+                android:layout_marginEnd="5dp"
+                android:id="@+id/btnSubtract"
+                android:layout_width="0dp"
+                android:textColor="#ffa500"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()->CalculatorViewModel.check(`-`)}"
+                android:text="-" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llFour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:id="@+id/btnDecimal"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()->CalculatorViewModel.decimalPt()}"
+                android:text="." />
+
+            <Button
+                android:id="@+id/btnZero"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:onClick="@{()->CalculatorViewModel.onDig(`0`)}"
+                android:text="0" />
+
+            <Button
+                android:layout_marginEnd="5dp"
+                android:id="@+id/btnClear"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textColor="#ffa500"
+                android:layout_weight="1"
+                android:onClick="@{()->CalculatorViewModel.clearInput()}"
+                android:text="CLR" />
+
+            <Button
+                android:layout_marginEnd="5dp"
+                android:id="@+id/btnAdd"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="#ffa500"
+                android:onClick="@{()->CalculatorViewModel.check(`+`)}"
+                android:text="+" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llFive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:id="@+id/btnEqual"
+                android:textColor="#ffa500"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="match_parent"
+                android:onClick="@{()->CalculatorViewModel.calculateResult()}"
+                android:text="=" />
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="0dp"
+                android:layout_marginEnd="5dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="#ffa500"
+                android:onClick="@{()->CalculatorViewModel.removeLastInput()}"
+                android:text="C" />
+            <Button
+                android:id="@+id/btnToggle"
+                android:layout_width="0dp"
+                android:layout_marginEnd="5dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="#ffa500"
+                android:onClick="@{()->CalculatorViewModel.toggle()}"
+                android:text="+/-" />
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

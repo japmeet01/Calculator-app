@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+<data>
+    <variable
+        name="CalculatorViewModel"
+        type="com.example.calculatorapp.CalculatorViewModel" />
+</data>
+<LinearLayout
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -12,9 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:background="#22252D"
-        android:ems="10"
-        android:gravity="end|center_vertical|bottom"
-        android:maxLength="12"
+        android:gravity="start"
         android:padding="10dp"
         android:textSize="48sp"
         android:textColor="#FFFFFF"/>
@@ -34,7 +39,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="onDigit"
+            android:onClick="@{()->CalculatorViewModel.onDig(`7`)}"
             android:text="7" />
 
         <Button
@@ -43,7 +48,7 @@
             android:layout_marginEnd="5dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="onDigit"
+            android:onClick="@{()->CalculatorViewModel.onDig(`8`)}"
             android:text="8" />
 
         <Button
@@ -52,7 +57,7 @@
             android:layout_marginEnd="5dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="onDigit"
+            android:onClick="@{()->CalculatorViewModel.onDig(`9`)}"
             android:text="9" />
 
         <Button
@@ -62,7 +67,7 @@
             android:layout_marginEnd="5dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="onOperator"
+            android:onClick="@{()->CalculatorViewModel.check(`/`)}"
             android:text="/" />
 
     </LinearLayout>
@@ -81,7 +86,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="onDigit"
+            android:onClick="@{()->CalculatorViewModel.onDig(`4`)}"
             android:text="4" />
 
         <Button
@@ -90,7 +95,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="onDigit"
+            android:onClick="@{()->CalculatorViewModel.onDig(`5`)}"
             android:text="5" />
 
         <Button
@@ -99,7 +104,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="onDigit"
+            android:onClick="@{()->CalculatorViewModel.onDig(`6`)}"
             android:text="6" />
 
         <Button
@@ -109,7 +114,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="onOperator"
+            android:onClick="@{()->CalculatorViewModel.check(`*`)}"
             android:text="*" />
 
     </LinearLayout>
@@ -128,7 +133,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="onDigit"
+            android:onClick="@{()->CalculatorViewModel.onDig(`1`)}"
             android:text="1" />
 
         <Button
@@ -137,7 +142,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="onDigit"
+            android:onClick="@{()->CalculatorViewModel.onDig(`2`)}"
             android:text="2" />
 
         <Button
@@ -146,7 +151,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="onDigit"
+            android:onClick="@{()->CalculatorViewModel.onDig(`3`)}"
             android:text="3" />
 
         <Button
@@ -156,7 +161,7 @@
             android:textColor="#ffa500"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="onOperator"
+            android:onClick="@{()->CalculatorViewModel.check(`-`)}"
             android:text="-" />
     </LinearLayout>
 
@@ -174,7 +179,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="onDecimalPoint"
+            android:onClick="@{()->CalculatorViewModel.decimalPt()}"
             android:text="." />
 
         <Button
@@ -183,7 +188,7 @@
             android:layout_height="match_parent"
             android:layout_marginEnd="5dp"
             android:layout_weight="1"
-            android:onClick="onDigit"
+            android:onClick="@{()->CalculatorViewModel.onDig(`0`)}"
             android:text="0" />
 
         <Button
@@ -193,7 +198,7 @@
             android:layout_height="match_parent"
             android:textColor="#ffa500"
             android:layout_weight="1"
-            android:onClick="onClear"
+            android:onClick="@{()->CalculatorViewModel.clearInput()}"
             android:text="CLR" />
 
         <Button
@@ -203,7 +208,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textColor="#ffa500"
-            android:onClick="onOperator"
+            android:onClick="@{()->CalculatorViewModel.check(`+`)}"
             android:text="+" />
 
     </LinearLayout>
@@ -221,9 +226,9 @@
             android:id="@+id/btnEqual"
             android:textColor="#ffa500"
             android:layout_width="0dp"
-            android:layout_weight="3"
+            android:layout_weight="2"
             android:layout_height="match_parent"
-            android:onClick="onEqual"
+            android:onClick="@{()->CalculatorViewModel.calculateResult()}"
             android:text="=" />
         <Button
             android:id="@+id/btnCancel"
@@ -232,8 +237,18 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textColor="#ffa500"
-            android:onClick="onCancel"
+            android:onClick="@{()->CalculatorViewModel.removeLastInput()}"
             android:text="C" />
-    </LinearLayout>
+        <Button
+            android:id="@+id/btnToggle"
+            android:layout_width="0dp"
+            android:layout_marginEnd="5dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="#ffa500"
+            android:onClick="@{()->CalculatorViewModel.toggle()}"
+            android:text="+/-" />
 
+    </LinearLayout>
 </LinearLayout>
+</layout>
